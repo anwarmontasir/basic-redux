@@ -3,19 +3,19 @@ import { connect } from 'react-redux';
 import { updateNote, removeNote } from './actions';
 import NoteForm from './NoteForm';
 
-class Note extends component {
+class Note extends Component {
   state = {
-    editing: false;
+    editing: false
   };
 
   handleEdit = note => {
     this.props.updateNote(note);
     this.setState({ editing: false });
-  }
+  };
 
   handleToggleEdit = () => {
     this.setState(prev => ({
-      editing: !prev.editing;
+      editing: !prev.editing
     }));
   };
 
@@ -32,7 +32,7 @@ class Note extends component {
           <p><time>{timestamp.toLocaleString()}</time> - {text}</p>
         }
         <button onClick={this.handleToggleEdit}>
-         { editing ? 'cancel' : '✎'}
+          { editing ? 'cancel' : '✎'}
         </button>
         <button onClick={() => removeNote(id)}>X</button>
       </li>
